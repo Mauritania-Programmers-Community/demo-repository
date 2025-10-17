@@ -78,6 +78,22 @@ function formatNumber(num) {
 }
 
 /**
+ * Set the footer year to the current year.
+ * Uses an element with id "footer-year".
+ */
+function initFooterYear() {
+  try {
+    const el = document.getElementById('footer-year');
+    if (!el) return;
+    const year = new Date().getFullYear();
+    el.textContent = year;
+  } catch (err) {
+    // Fail silently - footer year is non-essential
+    console.warn('Unable to set footer year', err);
+  }
+}
+
+/**
  * Initialize counter animation when stats section is visible
  */
 function initStatsCounter() {
@@ -141,6 +157,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Initialize mobile menu (placeholder)
   initMobileMenu();
+
+  // Initialize footer year
+  initFooterYear();
 
   // Log welcome message
   console.log(
