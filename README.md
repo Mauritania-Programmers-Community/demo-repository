@@ -3,7 +3,7 @@
 [![Beginner Friendly](https://img.shields.io/badge/beginner-friendly-brightgreen)](CONTRIBUTING.md)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-blue)](CONTRIBUTING.md)
 
-## 🏃 Quick Start
+## 🏃 QUick start
 
 ```bash
 # Clone the repository
@@ -99,6 +99,7 @@ We have **beginner-friendly issues** ready for you! Check out our [issues page](
 - 🔵 **Intermediate** - Practice more advanced web development
 
 **Popular starter tasks:**
+
 - Mobile hamburger menu
 - Dark mode toggle
 - Back to top button
