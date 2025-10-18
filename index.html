@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -84,19 +84,47 @@
         },
       };
     </script>
+    <style>
+      :root {
+        --bg-color: white;
+        --text-color: #0a1628;
+      }
+
+      [data-theme='dark'] {
+        --bg-color: #0a1628;
+        --text-color: white;
+      }
+
+      body {
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        transition: background-color 0.3s, color 0.3s;
+      }
+
+      nav,
+      section,
+      footer {
+        transition: background-color 0.3s, color 0.3s;
+      }
+    </style>
 
     <!-- Custom CSS for Patterns and Animations -->
     <link rel="stylesheet" href="./css/custom.css" />
+    <link rel="stylesheet" href="./css/dark-mode.css" />
   </head>
 
-  <body class="font-sans antialiased bg-gray-50 text-gray-900 overflow-x-hidden">
+  <body id="body" class="font-sans antialiased overflow-x-hidden">
     <!-- Navigation -->
-    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md shadow-sm">
+    <nav class="sticky top-0 z-50 backdrop-blur-md shadow-sm" style="background-color: var(--bg-color); color: var(--text-color);">
       <div class="container mx-auto px-4 py-4">
         <div class="flex items-center justify-between">
           <!-- Logo -->
           <div class="flex items-center gap-3">
-            <img src="./assets/images/MPC.png" alt="Mauritania Programmers Community Logo" class="w-12 h-12 object-contain" />
+            <img
+              src="./assets/images/MPC.png"
+              alt="Mauritania Programmers Community Logo"
+              class="w-12 h-12 object-contain"
+            />
             <div>
               <h1 class="text-2xl font-bold text-gray-900">MPC</h1>
               <p class="text-xs text-gray-600">Mauritania Programmers Community</p>
@@ -139,6 +167,7 @@
 
           <!-- Actions -->
           <div class="flex items-center gap-3">
+            <!-- GitHub link -->
             <a
               href="https://github.com/Mauritania-Programmers-Community"
               target="_blank"
@@ -146,6 +175,15 @@
             >
               <i class="fab fa-github"></i>
             </a>
+
+            <!-- Dark mode toggle -->
+            <button
+              id="theme-toggle"
+              aria-label="Toggle dark mode"
+              class="ml-3 text-gray-700 hover:text-primary-500 transition-colors text-xl"
+            >
+              <i id="theme-icon" class="fas fa-moon"></i>
+            </button>
           </div>
         </div>
       </div>
@@ -551,7 +589,11 @@
           class="border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center text-sm"
         >
           <div class="mb-4 md:mb-0">
-            <p>© <span id="footer-year">2025</span> Mauritania Programmers Community. All rights reserved.</p>
+            <p>
+              ©
+              <span id="footer-year">2025</span>
+              Mauritania Programmers Community. All rights reserved.
+            </p>
             <p class="text-gray-500 mt-2">Building together, learning together 🇲🇷💻</p>
           </div>
           <div class="flex gap-4">
@@ -577,6 +619,50 @@
         </div>
       </div>
     </footer>
+<script>
+  // ========= Dark Mode Handling =========
+  const themeToggle = document.getElementById('theme-toggle');
+  const themeIcon = document.getElementById('theme-icon');
+
+  const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+
+  function applyTheme(theme) {
+    if (theme === 'dark') {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      themeIcon.classList.add('fa-sun');
+      themeIcon.classList.remove('fa-moon');
+    } else {
+      document.documentElement.setAttribute('data-theme', 'light');
+      themeIcon.classList.add('fa-moon');
+      themeIcon.classList.remove('fa-sun');
+    }
+  }
+
+  // Determine initial theme
+  const storedTheme = localStorage.getItem('theme');
+  const initialTheme = storedTheme ? storedTheme : prefersDarkScheme.matches ? 'dark' : 'light';
+  applyTheme(initialTheme);
+  if (storedTheme) {
+    // Keep stored value
+  } else {
+    localStorage.setItem('theme', initialTheme);
+  }
+
+  // Listen for system preference changes if user hasn't set a manual preference
+  prefersDarkScheme.addEventListener('change', e => {
+    if (!localStorage.getItem('theme')) {
+      applyTheme(e.matches ? 'dark' : 'light');
+    }
+  });
+
+  // Toggle via button
+  themeToggle.addEventListener('click', () => {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    applyTheme(newTheme);
+    localStorage.setItem('theme', newTheme);
+  });
+</script>
 
     <!-- JavaScript -->
     <script src="./js/app.js"></script>
