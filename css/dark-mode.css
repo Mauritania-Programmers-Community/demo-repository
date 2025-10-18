@@ -1,0 +1,66 @@
+/* Dark Mode Overrides for MPC Demo Repository */
+/* Apply when `.dark` class is present on <html> element */
+
+/* Base colors */
+[data-theme='dark'] {
+  --bg-color: #0a1628;
+  --text-color: #f3f4f6;
+}
+
+[data-theme='dark'] body,
+[data-theme='dark'] nav,
+[data-theme='dark'] section,
+[data-theme='dark'] footer {
+  background-color: var(--bg-color) !important;
+  color: var(--text-color) !important;
+}
+
+/* Background overrides for common light backgrounds */
+[data-theme='dark'] .bg-white,
+[data-theme='dark'] .bg-white\2f 90,
+[data-theme='dark'] .bg-gray-50,
+[data-theme='dark'] .bg-primary-50 {
+  background-color: #1a2332 !important;
+}
+
+/* Card and element shadows */
+[data-theme='dark'] .shadow-lg,
+[data-theme='dark'] .shadow-md,
+[data-theme='dark'] .shadow-sm {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.6) !important;
+}
+
+/* Text color overrides */
+[data-theme='dark'] .text-gray-900,
+[data-theme='dark'] .text-gray-800,
+[data-theme='dark'] .text-gray-700,
+[data-theme='dark'] .text-gray-600,
+[data-theme='dark'] .text-gray-500 {
+  color: #f3f4f6 !important;
+}
+
+[data-theme='dark'] .text-primary-500 {
+  color: #33CF87 !important;
+}
+
+/* Border color overrides */
+[data-theme='dark'] .border-gray-200,
+[data-theme='dark'] .border-gray-300,
+[data-theme='dark'] .border-gray-400,
+[data-theme='dark'] .border-gray-700 {
+  border-color: #374151 !important;
+}
+
+/* Link hover */
+[data-theme='dark'] a:hover {
+  color: #33CF87 !important;
+}
+
+/* Prose */
+[data-theme='dark'] .prose {
+  color: var(--text-color) !important;
+}
+
+[data-theme='dark'] .bg-white:hover {
+  background-color: #374151 !important;
+}
