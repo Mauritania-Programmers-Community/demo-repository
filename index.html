@@ -33,84 +33,57 @@
     />
 
     <!-- Tailwind CSS Custom Configuration -->
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              // MPC Brand Colors
-              'mpc-green': '#00A859',
-              'mpc-gold': '#FFD700',
-              'mpc-dark': '#0A1628',
-              'mpc-dark-secondary': '#1a2332',
-              // Primary Color Scale
-              primary: {
-                50: '#E6F9F0',
-                100: '#CCF3E1',
-                200: '#99E7C3',
-                300: '#66DBA5',
-                400: '#33CF87',
-                500: '#00A859',
-                600: '#008F4D',
-                700: '#007640',
-                800: '#005D33',
-                900: '#004426',
-              },
-              // Golden Color Scale
-              golden: {
-                50: '#FFFEF0',
-                100: '#FFFCE0',
-                200: '#FFF9C2',
-                300: '#FFF5A3',
-                400: '#FFE866',
-                500: '#FFD700',
-                600: '#CCB000',
-                700: '#998400',
-                800: '#665700',
-                900: '#332B00',
-              },
-            },
-            fontFamily: {
-              sans: ['Poppins', 'system-ui', '-apple-system', 'sans-serif'],
-              heading: ['Poppins', 'system-ui', 'sans-serif'],
-            },
-            boxShadow: {
-              mpc: '0 10px 25px rgba(0, 168, 89, 0.1), 0 5px 15px rgba(0, 0, 0, 0.05)',
-              'mpc-lg': '0 20px 40px rgba(0, 168, 89, 0.15), 0 10px 20px rgba(0, 0, 0, 0.08)',
-              golden: '0 0 15px rgba(255, 215, 0, 0.4)',
-              green: '0 0 15px rgba(0, 168, 89, 0.4)',
-            },
+ <script>
+  tailwind.config = {
+    darkMode: ['selector', '[data-theme="dark"]'], // use data-theme instead of class
+    theme: {
+      extend: {
+        colors: {
+          'mpc-green': '#00A859',
+          'mpc-gold': '#FFD700',
+          'mpc-dark': '#0A1628',
+          'mpc-dark-secondary': '#1a2332',
+          primary: {
+            50: '#E6F9F0',
+            100: '#CCF3E1',
+            200: '#99E7C3',
+            300: '#66DBA5',
+            400: '#33CF87',
+            500: '#00A859',
+            600: '#008F4D',
+            700: '#007640',
+            800: '#005D33',
+            900: '#004426',
+          },
+          golden: {
+            50: '#FFFEF0',
+            100: '#FFFCE0',
+            200: '#FFF9C2',
+            300: '#FFF5A3',
+            400: '#FFE866',
+            500: '#FFD700',
+            600: '#CCB000',
+            700: '#998400',
+            800: '#665700',
+            900: '#332B00',
           },
         },
-      };
-    </script>
-    <style>
-      :root {
-        --bg-color: white;
-        --text-color: #0a1628;
-      }
+        fontFamily: {
+          sans: ['Poppins', 'system-ui', '-apple-system', 'sans-serif'],
+        },
+        boxShadow: {
+          mpc: '0 10px 25px rgba(0, 168, 89, 0.1), 0 5px 15px rgba(0, 0, 0, 0.05)',
+          'mpc-lg': '0 20px 40px rgba(0, 168, 89, 0.15), 0 10px 20px rgba(0, 0, 0, 0.08)',
+        },
+      },
+    },
+  };
+</script>
 
-      [data-theme='dark'] {
-        --bg-color: #0a1628;
-        --text-color: white;
-      }
-
-      body {
-        background-color: var(--bg-color);
-        color: var(--text-color);
-        transition: background-color 0.3s, color 0.3s;
-      }
-
-      nav,
-      section,
-      footer {
-        transition: background-color 0.3s, color 0.3s;
-      }
-    </style>
 
     <!-- Custom CSS for Patterns and Animations -->
     <link rel="stylesheet" href="./css/custom.css" />
-    <link rel="stylesheet" href="./css/dark-mode.css" />
+
   </head>
 
   <body id="body" class="font-sans antialiased overflow-x-hidden">
