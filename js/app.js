@@ -136,7 +136,6 @@ function initStatsCounter() {
 function initMobileMenu() {
   // This is a placeholder for future mobile menu functionality
   // Can be implemented with a hamburger menu button
-  console.log('Mobile menu functionality ready for implementation');
 }
 
 // ============================================
@@ -147,8 +146,6 @@ function initMobileMenu() {
  * Initialize all functions when DOM is loaded
  */
 document.addEventListener('DOMContentLoaded', function () {
-  console.log('MPC Demo Repository - JavaScript Loaded');
-
   // Initialize smooth scroll
   initSmoothScroll();
 
@@ -161,12 +158,11 @@ document.addEventListener('DOMContentLoaded', function () {
   // Initialize footer year
   initFooterYear();
 
-  // Log welcome message
   console.log(
     `
-    %c🇲🇷 Mauritania Programmers Community
-    %cWelcome to our demo repository!
-    %cGitHub: https://github.com/Mauritania-Programmers-Community
+  %c🇲🇷 Mauritania Programmers Community
+  %cWelcome to our demo repository!
+  %cGitHub: https://github.com/Mauritania-Programmers-Community
   `,
     'color: #00A859; font-size: 16px; font-weight: bold;',
     'color: #666; font-size: 14px;',
