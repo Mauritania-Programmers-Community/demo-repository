@@ -157,4 +157,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Initialize footer year
   initFooterYear();
+
+  console.log(
+    `
+  %c🇲🇷 Mauritania Programmers Community
+  %cWelcome to our demo repository!
+  %cGitHub: https://github.com/Mauritania-Programmers-Community
+  `,
+    'color: #00A859; font-size: 16px; font-weight: bold;',
+    'color: #666; font-size: 14px;',
+    'color: #666; font-size: 12px;'
+  );
 });
