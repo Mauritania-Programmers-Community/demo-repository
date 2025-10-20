@@ -1,160 +1,126 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
+
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Mauritania Programmers Community - Building the future of tech in Mauritania, one line of code at a time."
-    />
-    <meta
-      name="keywords"
-      content="Mauritania, Programming, Community, Tech, Learning, GitHub, Open Source"
-    />
+    <meta name="description"
+      content="Mauritania Programmers Community - Building the future of tech in Mauritania, one line of code at a time." />
+    <meta name="keywords"
+      content="Mauritania, Programming, Community, Tech, Learning, GitHub, Open Source" />
     <meta name="author" content="Mauritania Programmers Community" />
 
     <title>MPC Demo Repository | Mauritania Programmers Community</title>
 
-    <!-- Tailwind CSS v3 CDN (Stable) -->
+    <!-- Tailwind CSS v3 CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Font Awesome for Icons -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
+    <!-- Configure Tailwind for dark mode via [data-theme="dark"] -->
+    <script>
+      tailwind.config = {
+        darkMode: ['selector', '[data-theme="dark"]'],
+        theme: {
+          extend: {
+            colors: {
+              'mpc-green': '#00A859',
+              'mpc-gold': '#FFD700',
+              'mpc-dark': '#0A1628',
+              'mpc-dark-secondary': '#1a2332',
+              primary: {
+                50: '#E6F9F0',
+                100: '#CCF3E1',
+                200: '#99E7C3',
+                300: '#66DBA5',
+                400: '#33CF87',
+                500: '#00A859',
+                600: '#008F4D',
+                700: '#007640',
+                800: '#005D33',
+                900: '#004426',
+              },
+              golden: {
+                50: '#FFFEF0',
+                100: '#FFFCE0',
+                200: '#FFF9C2',
+                300: '#FFF5A3',
+                400: '#FFE866',
+                500: '#FFD700',
+                600: '#CCB000',
+                700: '#998400',
+                800: '#665700',
+                900: '#332B00',
+              },
+            },
+            fontFamily: {
+              sans: ['Poppins', 'system-ui', '-apple-system', 'sans-serif'],
+            },
+            boxShadow: {
+              mpc: '0 10px 25px rgba(0, 168, 89, 0.1), 0 5px 15px rgba(0, 0, 0, 0.05)',
+              'mpc-lg': '0 20px 40px rgba(0, 168, 89, 0.15), 0 10px 20px rgba(0, 0, 0, 0.08)',
+              golden: '0 0 15px rgba(255, 215, 0, 0.4)',
+              green: '0 0 15px rgba(0, 168, 89, 0.4)',
+            },
+          },
+        },
+      };
+    </script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet" />
 
-    <!-- Tailwind CSS Custom Configuration -->
- <script>
-  tailwind.config = {
-    darkMode: ['selector', '[data-theme="dark"]'], // use data-theme instead of class
-    theme: {
-      extend: {
-        colors: {
-          'mpc-green': '#00A859',
-          'mpc-gold': '#FFD700',
-          'mpc-dark': '#0A1628',
-          'mpc-dark-secondary': '#1a2332',
-          primary: {
-            50: '#E6F9F0',
-            100: '#CCF3E1',
-            200: '#99E7C3',
-            300: '#66DBA5',
-            400: '#33CF87',
-            500: '#00A859',
-            600: '#008F4D',
-            700: '#007640',
-            800: '#005D33',
-            900: '#004426',
-          },
-          golden: {
-            50: '#FFFEF0',
-            100: '#FFFCE0',
-            200: '#FFF9C2',
-            300: '#FFF5A3',
-            400: '#FFE866',
-            500: '#FFD700',
-            600: '#CCB000',
-            700: '#998400',
-            800: '#665700',
-            900: '#332B00',
-          },
-        },
-        fontFamily: {
-          sans: ['Poppins', 'system-ui', '-apple-system', 'sans-serif'],
-        },
-        boxShadow: {
-          mpc: '0 10px 25px rgba(0, 168, 89, 0.1), 0 5px 15px rgba(0, 0, 0, 0.05)',
-          'mpc-lg': '0 20px 40px rgba(0, 168, 89, 0.15), 0 10px 20px rgba(0, 0, 0, 0.08)',
-        },
-      },
-    },
-  };
-</script>
-
-
-    <!-- Custom CSS for Patterns and Animations -->
+    <!-- Custom CSS (patterns/animations only) -->
     <link rel="stylesheet" href="./css/custom.css" />
-
   </head>
 
-  <body id="body" class="font-sans antialiased overflow-x-hidden">
+  <body id="body"
+    class="font-sans antialiased overflow-x-hidden bg-white text-gray-900 dark:bg-mpc-dark dark:text-white transition-colors duration-300">
     <!-- Navigation -->
-    <nav class="sticky top-0 z-50 backdrop-blur-md shadow-sm" style="background-color: var(--bg-color); color: var(--text-color);">
+    <nav
+      class="sticky top-0 z-50 backdrop-blur-md shadow-sm bg-white dark:bg-mpc-dark-secondary transition-colors duration-300">
       <div class="container mx-auto px-4 py-4">
         <div class="flex items-center justify-between">
           <!-- Logo -->
           <div class="flex items-center gap-3">
-            <img
-              src="./assets/images/MPC.png"
-              alt="Mauritania Programmers Community Logo"
-              class="w-12 h-12 object-contain"
-            />
+            <img src="./assets/images/MPC.png" alt="Mauritania Programmers Community Logo"
+              class="w-12 h-12 object-contain" />
             <div>
-              <h1 class="text-2xl font-bold text-gray-900">MPC</h1>
-              <p class="text-xs text-gray-600">Mauritania Programmers Community</p>
+              <h1 class="text-2xl font-bold text-gray-900 dark:text-white">MPC</h1>
+              <p class="text-xs text-gray-600 dark:text-gray-300">
+                Mauritania Programmers Community
+              </p>
             </div>
           </div>
 
           <!-- Desktop Navigation -->
           <nav class="hidden lg:flex items-center gap-6">
-            <a
-              href="#home"
-              class="text-sm font-medium text-gray-700 hover:text-primary-500 transition-colors"
-            >
-              Home
-            </a>
-            <a
-              href="#learning"
-              class="text-sm font-medium text-gray-700 hover:text-primary-500 transition-colors"
-            >
-              Learning
-            </a>
-            <a
-              href="#community"
-              class="text-sm font-medium text-gray-700 hover:text-primary-500 transition-colors"
-            >
-              Community
-            </a>
-            <a
-              href="#projects"
-              class="text-sm font-medium text-gray-700 hover:text-primary-500 transition-colors"
-            >
-              Projects
-            </a>
-            <a
-              href="#events"
-              class="text-sm font-medium text-gray-700 hover:text-primary-500 transition-colors"
-            >
-              Events
-            </a>
+            <a href="#home"
+              class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary-500 transition-colors">Home</a>
+            <a href="#learning"
+              class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary-500 transition-colors">Learning</a>
+            <a href="#community"
+              class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary-500 transition-colors">Community</a>
+            <a href="#projects"
+              class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary-500 transition-colors">Projects</a>
+            <a href="#events"
+              class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary-500 transition-colors">Events</a>
           </nav>
 
           <!-- Actions -->
           <div class="flex items-center gap-3">
-            <!-- GitHub link -->
-            <a
-              href="https://github.com/Mauritania-Programmers-Community"
-              target="_blank"
-              class="text-gray-700 hover:text-primary-500 transition-colors text-xl"
-            >
-              <i class="fab fa-github"></i>
-            </a>
+            <a href="https://github.com/Mauritania-Programmers-Community" target="_blank"
+              class="text-gray-700 dark:text-gray-300 hover:text-primary-500 transition-colors text-xl"><i
+                class="fab fa-github"></i></a>
 
             <!-- Dark mode toggle -->
-            <button
-              id="theme-toggle"
-              aria-label="Toggle dark mode"
-              class="ml-3 text-gray-700 hover:text-primary-500 transition-colors text-xl"
-            >
+            <button id="theme-toggle" aria-label="Toggle dark mode"
+              class="ml-3 text-gray-700 dark:text-gray-300 hover:text-primary-500 transition-colors text-xl">
               <i id="theme-icon" class="fas fa-moon"></i>
             </button>
           </div>
@@ -163,41 +129,28 @@
     </nav>
 
     <!-- Hero Section -->
-    <section
-      id="home"
-      class="relative overflow-hidden py-20 text-center text-white"
-      style="background: linear-gradient(135deg, #0a1628 0%, #1a2332 50%, #00a859 100%)"
-    >
+    <section id="home"
+      class="relative overflow-hidden py-20 text-center text-white bg-gradient-to-br from-mpc-dark via-mpc-dark-secondary to-mpc-green">
       <div class="absolute inset-0 geometric-pattern opacity-10"></div>
       <div class="absolute inset-0 pattern-stars opacity-20"></div>
-
       <div class="container mx-auto px-4 relative z-10">
         <div class="animate-fade-in-up">
           <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-shadow-strong">
             Empowering Mauritanian Tech Innovators
           </h2>
-
           <p class="text-lg md:text-xl text-gray-200 max-w-3xl mx-auto mb-8">
             Join the leading tech community in Mauritania. Learn, collaborate, and build the future
             together.
           </p>
-
           <div class="flex flex-wrap justify-center gap-4">
-            <a
-              href="#learning"
-              class="inline-flex items-center bg-white text-primary-500 px-8 py-3 rounded-lg font-bold hover:bg-gray-100 hover:scale-105 transition-all shadow-lg"
-            >
-              Get Started
-
-              <i class="fas fa-arrow-right ml-2"></i>
+            <a href="#learning"
+              class="inline-flex items-center bg-white text-primary-500 px-8 py-3 rounded-lg font-bold hover:bg-gray-100 hover:scale-105 transition-all shadow-lg">
+              Get Started <i class="fas fa-arrow-right ml-2"></i>
             </a>
-            <a
-              href="https://github.com/Mauritania-Programmers-Community/demo-repository"
+            <a href="https://github.com/Mauritania-Programmers-Community/demo-repository"
               target="_blank"
-              class="inline-flex items-center border-2 border-white px-8 py-3 rounded-lg font-bold hover:bg-white hover:text-primary-500 transition-all shadow-lg"
-            >
-              <i class="fab fa-github mr-2"></i>
-              View on GitHub
+              class="inline-flex items-center border-2 border-white px-8 py-3 rounded-lg font-bold hover:bg-white hover:text-primary-500 transition-all shadow-lg">
+              <i class="fab fa-github mr-2"></i> View on GitHub
             </a>
           </div>
         </div>
@@ -205,124 +158,129 @@
     </section>
 
     <!-- Stats Section -->
-    <section class="py-16 bg-white">
+    <section class="py-16 bg-white dark:bg-gray-900 transition-colors duration-300">
       <div class="container mx-auto px-4">
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           <div
-            class="bg-primary-50 rounded-lg p-6 text-center shadow-lg hover:-translate-y-1 transition-transform"
-          >
-            <p class="text-lg font-medium text-gray-700 mb-2">Active Members</p>
+            class="bg-primary-50 dark:bg-mpc-dark-secondary rounded-lg p-6 text-center shadow-lg hover:-translate-y-1 transition-transform">
+            <p class="text-lg font-medium text-gray-700 dark:text-gray-300 mb-2">Active Members</p>
             <p class="text-5xl font-bold text-primary-500 animate-counter">600+</p>
           </div>
-
           <div
-            class="bg-primary-50 rounded-lg p-6 text-center shadow-lg hover:-translate-y-1 transition-transform"
-          >
-            <p class="text-lg font-medium text-gray-700 mb-2">Active Projects</p>
+            class="bg-primary-50 dark:bg-mpc-dark-secondary rounded-lg p-6 text-center shadow-lg hover:-translate-y-1 transition-transform">
+            <p class="text-lg font-medium text-gray-700 dark:text-gray-300 mb-2">Active Projects</p>
             <p class="text-5xl font-bold text-primary-500 animate-counter">2</p>
           </div>
-
           <div
-            class="bg-primary-50 rounded-lg p-6 text-center shadow-lg hover:-translate-y-1 transition-transform"
-          >
-            <p class="text-lg font-medium text-gray-700 mb-2">Annual Events</p>
+            class="bg-primary-50 dark:bg-mpc-dark-secondary rounded-lg p-6 text-center shadow-lg hover:-translate-y-1 transition-transform">
+            <p class="text-lg font-medium text-gray-700 dark:text-gray-300 mb-2">Annual Events</p>
             <p class="text-5xl font-bold text-primary-500 animate-counter">1+</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Learning Paths Section -->
-    <section id="learning" class="py-20 bg-gray-50">
+    <!-- Learning Section -->
+    <section id="learning" class="py-20 bg-gray-50 dark:bg-mpc-dark transition-colors duration-300">
       <div class="container mx-auto px-4">
-        <h3 class="text-4xl font-bold text-center mb-12 text-gray-900">Learning Paths</h3>
+        <h3 class="text-4xl font-bold text-center mb-12 text-gray-900 dark:text-white">
+          Learning Paths
+        </h3>
 
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
           <!-- Web Development -->
-          <div class="group bg-white rounded-lg shadow-lg overflow-hidden card-hover">
+          <div
+            class="group bg-white dark:bg-mpc-dark-secondary rounded-lg shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 card-hover">
             <div class="bg-primary-500 h-2"></div>
             <div class="p-6">
               <div
-                class="text-4xl text-primary-500 mb-4 group-hover:scale-110 transition-transform"
-              >
+                class="text-4xl text-primary-500 mb-4 group-hover:scale-110 transition-transform duration-300">
                 <i class="fas fa-code"></i>
               </div>
-              <h4 class="text-xl font-bold text-gray-900 mb-3">Web Development</h4>
-              <p class="text-gray-600">
+              <h4 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Web Development</h4>
+              <p class="text-gray-600 dark:text-gray-300">
                 Master the art of building responsive and dynamic websites using modern frameworks.
               </p>
             </div>
           </div>
 
           <!-- UI/UX Design -->
-          <div class="group bg-white rounded-lg shadow-lg overflow-hidden card-hover">
+          <div
+            class="group bg-white dark:bg-mpc-dark-secondary rounded-lg shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 card-hover">
             <div class="bg-golden-500 h-2"></div>
             <div class="p-6">
-              <div class="text-4xl text-golden-500 mb-4 group-hover:scale-110 transition-transform">
+              <div
+                class="text-4xl text-golden-500 mb-4 group-hover:scale-110 transition-transform duration-300">
                 <i class="fas fa-palette"></i>
               </div>
-              <h4 class="text-xl font-bold text-gray-900 mb-3">UI/UX Design</h4>
-              <p class="text-gray-600">
+              <h4 class="text-xl font-bold text-gray-900 dark:text-white mb-3">UI/UX Design</h4>
+              <p class="text-gray-600 dark:text-gray-300">
                 Create intuitive and visually appealing user interfaces that delight users.
               </p>
             </div>
           </div>
 
-          <!-- Data Science -->
-          <div class="group bg-white rounded-lg shadow-lg overflow-hidden card-hover">
+          <!-- Data Science & AI -->
+          <div
+            class="group bg-white dark:bg-mpc-dark-secondary rounded-lg shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 card-hover">
             <div class="bg-primary-500 h-2"></div>
             <div class="p-6">
               <div
-                class="text-4xl text-primary-500 mb-4 group-hover:scale-110 transition-transform"
-              >
+                class="text-4xl text-primary-500 mb-4 group-hover:scale-110 transition-transform duration-300">
                 <i class="fas fa-chart-line"></i>
               </div>
-              <h4 class="text-xl font-bold text-gray-900 mb-3">Data Science & AI</h4>
-              <p class="text-gray-600">
+              <h4 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Data Science & AI
+              </h4>
+              <p class="text-gray-600 dark:text-gray-300">
                 Unlock the power of data to drive insights and innovation with AI.
               </p>
             </div>
           </div>
 
           <!-- Mobile Development -->
-          <div class="group bg-white rounded-lg shadow-lg overflow-hidden card-hover">
+          <div
+            class="group bg-white dark:bg-mpc-dark-secondary rounded-lg shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 card-hover">
             <div class="bg-golden-500 h-2"></div>
             <div class="p-6">
-              <div class="text-4xl text-golden-500 mb-4 group-hover:scale-110 transition-transform">
+              <div
+                class="text-4xl text-golden-500 mb-4 group-hover:scale-110 transition-transform duration-300">
                 <i class="fas fa-mobile-alt"></i>
               </div>
-              <h4 class="text-xl font-bold text-gray-900 mb-3">Mobile Development</h4>
-              <p class="text-gray-600">
+              <h4 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Mobile Development
+              </h4>
+              <p class="text-gray-600 dark:text-gray-300">
                 Build native or cross-platform mobile applications for iOS and Android.
               </p>
             </div>
           </div>
 
           <!-- Cloud Computing -->
-          <div class="group bg-white rounded-lg shadow-lg overflow-hidden card-hover">
+          <div
+            class="group bg-white dark:bg-mpc-dark-secondary rounded-lg shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 card-hover">
             <div class="bg-primary-500 h-2"></div>
             <div class="p-6">
               <div
-                class="text-4xl text-primary-500 mb-4 group-hover:scale-110 transition-transform"
-              >
+                class="text-4xl text-primary-500 mb-4 group-hover:scale-110 transition-transform duration-300">
                 <i class="fas fa-cloud"></i>
               </div>
-              <h4 class="text-xl font-bold text-gray-900 mb-3">Cloud Computing</h4>
-              <p class="text-gray-600">
+              <h4 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Cloud Computing</h4>
+              <p class="text-gray-600 dark:text-gray-300">
                 Learn to deploy, manage, and scale applications on leading cloud platforms.
               </p>
             </div>
           </div>
 
           <!-- Cybersecurity -->
-          <div class="group bg-white rounded-lg shadow-lg overflow-hidden card-hover">
+          <div
+            class="group bg-white dark:bg-mpc-dark-secondary rounded-lg shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 card-hover">
             <div class="bg-golden-500 h-2"></div>
             <div class="p-6">
-              <div class="text-4xl text-golden-500 mb-4 group-hover:scale-110 transition-transform">
+              <div
+                class="text-4xl text-golden-500 mb-4 group-hover:scale-110 transition-transform duration-300">
                 <i class="fas fa-shield-alt"></i>
               </div>
-              <h4 class="text-xl font-bold text-gray-900 mb-3">Cybersecurity</h4>
-              <p class="text-gray-600">
+              <h4 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Cybersecurity</h4>
+              <p class="text-gray-600 dark:text-gray-300">
                 Protect systems and data from threats and vulnerabilities.
               </p>
             </div>
@@ -331,69 +289,76 @@
       </div>
     </section>
 
-    <!-- Community Section -->
-    <section id="community" class="py-20 bg-primary-50">
+
+
+    <!-- Community -->
+    <section id="community" class="py-20 bg-primary-50 dark:bg-mpc-dark-secondary">
       <div class="container mx-auto px-4 text-center">
-        <h3 class="text-4xl font-bold mb-6 text-gray-900">Our Vibrant Community</h3>
-        <p class="text-lg text-gray-700 max-w-3xl mx-auto mb-8">
+        <h3 class="text-4xl font-bold mb-6 text-gray-900 dark:text-white">Our Vibrant Community</h3>
+        <p class="text-lg text-gray-700 dark:text-gray-300 max-w-3xl mx-auto mb-8">
           Connect with ambitious tech enthusiasts, share knowledge, and collaborate on exciting
           projects. Our community is the heartbeat of innovation in Mauritania.
         </p>
-        <a
-          href="https://chat.whatsapp.com/L13JBkYOBXqK9p8FYZE00x"
-          target="_blank"
-          class="inline-flex items-center bg-primary-500 text-white px-8 py-3 rounded-lg font-bold hover:bg-primary-600 hover:scale-105 transition-all shadow-lg"
-        >
-          <i class="fab fa-whatsapp mr-2 text-xl"></i>
-          Join Our Community
+        <a href="https://chat.whatsapp.com/L13JBkYOBXqK9p8FYZE00x" target="_blank"
+          class="inline-flex items-center bg-primary-500 text-white px-8 py-3 rounded-lg font-bold hover:bg-primary-600 hover:scale-105 transition-all shadow-lg">
+          <i class="fab fa-whatsapp mr-2 text-xl"></i> Join Our Community
         </a>
       </div>
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="py-20 bg-white">
+    <section id="projects" class="py-20 bg-white dark:bg-mpc-dark transition-colors duration-300">
       <div class="container mx-auto px-4">
-        <h3 class="text-4xl font-bold text-center mb-12 text-gray-900">Featured Projects</h3>
+        <h3 class="text-4xl font-bold text-center mb-12 text-gray-900 dark:text-white">
+          Featured Projects
+        </h3>
 
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div class="bg-white rounded-lg shadow-lg overflow-hidden card-hover">
+          <!-- Project 1 -->
+          <div
+            class="bg-white dark:bg-mpc-dark-secondary rounded-lg shadow-lg overflow-hidden card-hover transition-transform">
             <div
-              class="h-48 bg-gradient-to-br from-primary-500 to-primary-700 flex items-center justify-center"
-            >
+              class="h-48 bg-gradient-to-br from-primary-500 to-primary-700 flex items-center justify-center">
               <i class="fas fa-shopping-cart text-white text-6xl"></i>
             </div>
             <div class="p-6">
-              <h4 class="text-xl font-bold text-gray-900 mb-3">Nouakchott MarketPlace</h4>
-              <p class="text-gray-600">
+              <h4 class="text-xl font-bold text-gray-900 dark:text-white mb-3">
+                Nouakchott MarketPlace
+              </h4>
+              <p class="text-gray-600 dark:text-gray-300">
                 A local e-commerce platform connecting businesses with customers, featuring secure
                 payments.
               </p>
             </div>
           </div>
 
-          <div class="bg-white rounded-lg shadow-lg overflow-hidden card-hover">
+          <!-- Project 2 -->
+          <div
+            class="bg-white dark:bg-mpc-dark-secondary rounded-lg shadow-lg overflow-hidden card-hover transition-transform">
             <div
-              class="h-48 bg-gradient-to-br from-golden-500 to-golden-700 flex items-center justify-center"
-            >
+              class="h-48 bg-gradient-to-br from-golden-500 to-golden-700 flex items-center justify-center">
               <i class="fas fa-city text-white text-6xl"></i>
             </div>
             <div class="p-6">
-              <h4 class="text-xl font-bold text-gray-900 mb-3">Smart City Dashboard</h4>
-              <p class="text-gray-600">
+              <h4 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Smart City Dashboard
+              </h4>
+              <p class="text-gray-600 dark:text-gray-300">
                 An IoT-powered dashboard visualizing key urban data for city planning.
               </p>
             </div>
           </div>
 
-          <div class="bg-white rounded-lg shadow-lg overflow-hidden card-hover">
+          <!-- Project 3 -->
+          <div
+            class="bg-white dark:bg-mpc-dark-secondary rounded-lg shadow-lg overflow-hidden card-hover transition-transform">
             <div
-              class="h-48 bg-gradient-to-br from-primary-500 to-primary-700 flex items-center justify-center"
-            >
+              class="h-48 bg-gradient-to-br from-primary-500 to-primary-700 flex items-center justify-center">
               <i class="fas fa-seedling text-white text-6xl"></i>
             </div>
             <div class="p-6">
-              <h4 class="text-xl font-bold text-gray-900 mb-3">AgriTech Solution</h4>
-              <p class="text-gray-600">
+              <h4 class="text-xl font-bold text-gray-900 dark:text-white mb-3">AgriTech Solution
+              </h4>
+              <p class="text-gray-600 dark:text-gray-300">
                 A mobile application providing farmers with real-time weather and crop health data.
               </p>
             </div>
@@ -403,20 +368,25 @@
     </section>
 
     <!-- Events Section -->
-    <section id="events" class="py-20 bg-gray-50">
+    <section id="events" class="py-20 bg-gray-50 dark:bg-mpc-dark transition-colors duration-300">
       <div class="container mx-auto px-4">
-        <h3 class="text-4xl font-bold text-center mb-12 text-gray-900">Upcoming Events</h3>
+        <h3 class="text-4xl font-bold text-center mb-12 text-gray-900 dark:text-white">
+          Upcoming Events
+        </h3>
 
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div class="bg-white rounded-lg shadow-lg overflow-hidden card-hover">
+          <!-- Event 1 -->
+          <div
+            class="bg-white dark:bg-mpc-dark-secondary rounded-lg shadow-lg overflow-hidden card-hover transition-transform">
             <div
-              class="h-48 bg-gradient-to-br from-primary-500 to-primary-700 flex items-center justify-center"
-            >
+              class="h-48 bg-gradient-to-br from-primary-500 to-primary-700 flex items-center justify-center">
               <i class="fas fa-robot text-white text-6xl"></i>
             </div>
             <div class="p-6">
-              <h4 class="text-xl font-bold text-gray-900 mb-3">AI in Daily Life: Tech Talk</h4>
-              <p class="text-gray-600 mb-4">
+              <h4 class="text-xl font-bold text-gray-900 dark:text-white mb-3">
+                AI in Daily Life: Tech Talk
+              </h4>
+              <p class="text-gray-600 dark:text-gray-300 mb-4">
                 Join experts discussing the impact of AI on our daily routines.
               </p>
               <p class="text-sm font-semibold text-primary-500">
@@ -426,15 +396,18 @@
             </div>
           </div>
 
-          <div class="bg-white rounded-lg shadow-lg overflow-hidden card-hover">
+          <!-- Event 2 -->
+          <div
+            class="bg-white dark:bg-mpc-dark-secondary rounded-lg shadow-lg overflow-hidden card-hover transition-transform">
             <div
-              class="h-48 bg-gradient-to-br from-golden-500 to-golden-700 flex items-center justify-center"
-            >
+              class="h-48 bg-gradient-to-br from-golden-500 to-golden-700 flex items-center justify-center">
               <i class="fas fa-code text-white text-6xl"></i>
             </div>
             <div class="p-6">
-              <h4 class="text-xl font-bold text-gray-900 mb-3">Code Sprint: React Basics</h4>
-              <p class="text-gray-600 mb-4">
+              <h4 class="text-xl font-bold text-gray-900 dark:text-white mb-3">
+                Code Sprint: React Basics
+              </h4>
+              <p class="text-gray-600 dark:text-gray-300 mb-4">
                 A hands-on workshop to kickstart your web development journey.
               </p>
               <p class="text-sm font-semibold text-primary-500">
@@ -444,15 +417,18 @@
             </div>
           </div>
 
-          <div class="bg-white rounded-lg shadow-lg overflow-hidden card-hover">
+          <!-- Event 3 -->
+          <div
+            class="bg-white dark:bg-mpc-dark-secondary rounded-lg shadow-lg overflow-hidden card-hover transition-transform">
             <div
-              class="h-48 bg-gradient-to-br from-primary-500 to-primary-700 flex items-center justify-center"
-            >
+              class="h-48 bg-gradient-to-br from-primary-500 to-primary-700 flex items-center justify-center">
               <i class="fas fa-lightbulb text-white text-6xl"></i>
             </div>
             <div class="p-6">
-              <h4 class="text-xl font-bold text-gray-900 mb-3">Design Thinking for Startups</h4>
-              <p class="text-gray-600 mb-4">
+              <h4 class="text-xl font-bold text-gray-900 dark:text-white mb-3">
+                Design Thinking for Startups
+              </h4>
+              <p class="text-gray-600 dark:text-gray-300 mb-4">
                 Learn user-centered design principles to innovate your startup.
               </p>
               <p class="text-sm font-semibold text-primary-500">
@@ -467,42 +443,35 @@
 
     <!-- Final CTA Section -->
     <section
-      class="py-20 text-white text-center relative overflow-hidden"
-      style="background: linear-gradient(135deg, #00a859 0%, #ffd700 100%)"
-    >
+      class="py-20 text-white text-center relative overflow-hidden transition-colors duration-300 bg-gradient-to-br from-primary-500 to-golden-500 dark:from-mpc-green dark:to-golden-600">
       <div class="absolute inset-0 geometric-pattern opacity-10"></div>
       <div class="container mx-auto px-4 relative z-10">
-        <h3 class="text-4xl font-bold mb-6">Ready to Shape the Future of Mauritanian Tech?</h3>
+        <h3 class="text-4xl font-bold mb-6">
+          Ready to Shape the Future of Mauritanian Tech?
+        </h3>
         <p class="text-xl mb-8 opacity-90">
           Sign up today and become part of a thriving community of innovators, learners, and
           builders.
         </p>
-        <a
-          href="https://github.com/Mauritania-Programmers-Community"
-          target="_blank"
-          class="inline-flex items-center bg-white text-primary-500 px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 hover:scale-105 transition-all shadow-lg"
-        >
+        <a href="https://github.com/Mauritania-Programmers-Community" target="_blank"
+          class="inline-flex items-center bg-white text-primary-500 px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 hover:scale-105 transition-all shadow-lg">
           <i class="fas fa-rocket mr-2"></i>
           Join the Community Today!
         </a>
       </div>
     </section>
 
+
     <!-- Footer -->
-    <footer class="bg-gray-900 text-gray-300 py-12">
+    <footer class="bg-gray-900 text-gray-300 dark:bg-mpc-dark-secondary py-12 transition-colors">
       <div class="container mx-auto px-4">
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 mb-8">
-          <!-- Resources -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 mb-8 text-sm">
           <div>
             <h4 class="font-bold text-white mb-4">Resources</h4>
             <ul class="space-y-2">
               <li>
-                <a
-                  href="https://github.com/Mauritania-Programmers-Community/.github/blob/main/CONTRIBUTING.md"
-                  class="hover:text-primary-500 transition-colors"
-                >
-                  Documentation
-                </a>
+                <a href="https://github.com/Mauritania-Programmers-Community/.github/blob/main/CONTRIBUTING.md"
+                  class="hover:text-primary-500 transition-colors">Documentation</a>
               </li>
               <li>
                 <a href="#" class="hover:text-primary-500 transition-colors">Tutorials</a>
@@ -510,134 +479,62 @@
             </ul>
           </div>
 
-          <!-- Community -->
           <div>
             <h4 class="font-bold text-white mb-4">Community</h4>
             <ul class="space-y-2">
               <li>
-                <a
-                  href="https://github.com/Mauritania-Programmers-Community/.github/discussions"
-                  class="hover:text-primary-500 transition-colors"
-                >
-                  Discussions
-                </a>
+                <a href="https://github.com/Mauritania-Programmers-Community/.github/discussions"
+                  class="hover:text-primary-500 transition-colors">Discussions</a>
               </li>
               <li>
-                <a
-                  href="https://chat.whatsapp.com/L13JBkYOBXqK9p8FYZE00x"
-                  class="hover:text-primary-500 transition-colors"
-                >
-                  WhatsApp
-                </a>
+                <a href="https://chat.whatsapp.com/L13JBkYOBXqK9p8FYZE00x"
+                  class="hover:text-primary-500 transition-colors">WhatsApp</a>
               </li>
             </ul>
           </div>
 
-          <!-- Connect -->
           <div>
             <h4 class="font-bold text-white mb-4">Connect</h4>
             <ul class="space-y-2">
               <li>
-                <a
-                  href="https://github.com/Mauritania-Programmers-Community"
-                  class="hover:text-primary-500 transition-colors"
-                >
-                  GitHub
-                </a>
+                <a href="https://github.com/Mauritania-Programmers-Community"
+                  class="hover:text-primary-500 transition-colors">GitHub</a>
               </li>
               <li>
-                <a
-                  href="https://linkedin.com/company/مبرمجي-موريتانيا"
-                  class="hover:text-primary-500 transition-colors"
-                >
-                  LinkedIn
-                </a>
+                <a href="https://linkedin.com/company/مبرمجي-موريتانيا"
+                  class="hover:text-primary-500 transition-colors">LinkedIn</a>
               </li>
             </ul>
           </div>
         </div>
 
-        <!-- Footer Bottom -->
         <div
-          class="border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center text-sm"
-        >
+          class="border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center text-sm">
           <div class="mb-4 md:mb-0">
             <p>
-              ©
-              <span id="footer-year">2025</span>
-              Mauritania Programmers Community. All rights reserved.
+              © <span id="footer-year">2025</span> Mauritania Programmers Community. All rights
+              reserved.
             </p>
             <p class="text-gray-500 mt-2">Building together, learning together 🇲🇷💻</p>
           </div>
           <div class="flex gap-4">
-            <a
-              href="https://github.com/Mauritania-Programmers-Community"
-              class="text-gray-400 hover:text-primary-500 transition-colors"
-            >
-              <i class="fab fa-github text-2xl"></i>
-            </a>
-            <a
-              href="https://chat.whatsapp.com/L13JBkYOBXqK9p8FYZE00x"
-              class="text-gray-400 hover:text-primary-500 transition-colors"
-            >
-              <i class="fab fa-whatsapp text-2xl"></i>
-            </a>
-            <a
-              href="https://linkedin.com/company/مبرمجي-موريتانيا"
-              class="text-gray-400 hover:text-primary-500 transition-colors"
-            >
-              <i class="fab fa-linkedin text-2xl"></i>
-            </a>
+            <a href="https://github.com/Mauritania-Programmers-Community"
+              class="text-gray-400 hover:text-primary-500 transition-colors"><i
+                class="fab fa-github text-2xl"></i></a>
+            <a href="https://chat.whatsapp.com/L13JBkYOBXqK9p8FYZE00x"
+              class="text-gray-400 hover:text-primary-500 transition-colors"><i
+                class="fab fa-whatsapp text-2xl"></i></a>
+            <a href="https://linkedin.com/company/مبرمجي-موريتانيا"
+              class="text-gray-400 hover:text-primary-500 transition-colors"><i
+                class="fab fa-linkedin text-2xl"></i></a>
           </div>
         </div>
       </div>
     </footer>
-<script>
-  // ========= Dark Mode Handling =========
-  const themeToggle = document.getElementById('theme-toggle');
-  const themeIcon = document.getElementById('theme-icon');
 
-  const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
-
-  function applyTheme(theme) {
-    if (theme === 'dark') {
-      document.documentElement.setAttribute('data-theme', 'dark');
-      themeIcon.classList.add('fa-sun');
-      themeIcon.classList.remove('fa-moon');
-    } else {
-      document.documentElement.setAttribute('data-theme', 'light');
-      themeIcon.classList.add('fa-moon');
-      themeIcon.classList.remove('fa-sun');
-    }
-  }
-
-  // Determine initial theme
-  const storedTheme = localStorage.getItem('theme');
-  const initialTheme = storedTheme ? storedTheme : prefersDarkScheme.matches ? 'dark' : 'light';
-  applyTheme(initialTheme);
-  if (storedTheme) {
-    // Keep stored value
-  } else {
-    localStorage.setItem('theme', initialTheme);
-  }
-
-  // Listen for system preference changes if user hasn't set a manual preference
-  prefersDarkScheme.addEventListener('change', e => {
-    if (!localStorage.getItem('theme')) {
-      applyTheme(e.matches ? 'dark' : 'light');
-    }
-  });
-
-  // Toggle via button
-  themeToggle.addEventListener('click', () => {
-    const currentTheme = document.documentElement.getAttribute('data-theme');
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    applyTheme(newTheme);
-    localStorage.setItem('theme', newTheme);
-  });
-</script>
-
-    <!-- JavaScript -->
+    <!-- JS -->
+    <script src="./js/theme-toggle.js"></script>
     <script src="./js/app.js"></script>
   </body>
+
 </html>
