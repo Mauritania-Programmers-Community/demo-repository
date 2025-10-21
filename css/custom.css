@@ -220,3 +220,79 @@ img {
   height: 40px;
   animation: spin 0.8s linear infinite;
 }
+
+/* ============================================
+   BACK TO TOP BUTTON
+   ============================================ */
+
+.scroll-to-top {
+  position: fixed;
+  bottom: 8rem;
+  right: 2rem;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #00a859, #008f4d);
+  color: white;
+  border: none;
+  box-shadow: 0 4px 12px rgba(0, 168, 89, 0.3);
+  cursor: pointer;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+
+  /* Hidden by default */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px) scale(0.8);
+  transition: all 0.3s ease-in-out;
+}.scroll-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+.scroll-to-top:hover {
+  background: linear-gradient(135deg, #008f4d, #007640);
+  box-shadow: 0 6px 16px rgba(0, 168, 89, 0.4);
+  transform: translateY(-2px) scale(1.05);
+}
+
+.scroll-to-top:active {
+  transform: translateY(0) scale(0.95);
+  box-shadow: 0 2px 8px rgba(0, 168, 89, 0.3);
+}
+
+.scroll-to-top:focus-visible {
+  outline: 3px solid #00a859;
+  outline-offset: 3px;
+}
+
+html[data-theme="dark"] .scroll-to-top {
+  background: linear-gradient(135deg, #00a859, #008f4d);
+  box-shadow: 0 4px 12px rgba(0, 168, 89, 0.4);
+}
+
+html[data-theme="dark"] .scroll-to-top:hover {
+  background: linear-gradient(135deg, #33cf87, #00a859);
+  box-shadow: 0 6px 16px rgba(0, 168, 89, 0.5);
+}
+
+@media (max-width: 768px) {
+  .scroll-to-top {
+    bottom: 1.5rem;
+    right: 1.5rem;
+    width: 2.75rem;
+    height: 2.75rem;
+    font-size: 1rem;
+  }
+}
+
+/* Desktop positioning to be above footer social media buttons */
+@media (min-width: 769px) {
+  .scroll-to-top {
+    bottom: 8rem;
+  }
+}
