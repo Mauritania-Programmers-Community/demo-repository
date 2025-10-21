@@ -134,8 +134,82 @@ function initStatsCounter() {
  * Toggle mobile navigation menu
  */
 function initMobileMenu() {
-  // This is a placeholder for future mobile menu functionality
-  // Can be implemented with a hamburger menu button
+  const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  if (!mobileMenuToggle || !mobileMenu) {
+    console.warn('Mobile menu elements not found');
+    return;
+  }
+
+  mobileMenuToggle.addEventListener('click', function() {
+    const isMenuOpen = mobileMenu.classList.contains('show');
+
+    if (isMenuOpen) {
+      // Close menu
+      mobileMenu.classList.remove('show');
+      mobileMenuToggle.setAttribute('aria-expanded', 'false');
+    } else {
+      // Open menu
+      mobileMenu.classList.remove('hidden');
+      mobileMenu.classList.add('show');
+      mobileMenuToggle.setAttribute('aria-expanded', 'true');
+    }
+  });
+
+  const mobileNavLinks = mobileMenu.querySelectorAll('a[href^="#"]');
+  mobileNavLinks.forEach(link => {
+    link.addEventListener('click', function() {
+      this.classList.add('clicked');
+
+      setTimeout(() => {
+        this.classList.remove('clicked');
+      }, 300);
+
+      setTimeout(() => {
+        mobileMenu.classList.remove('show');
+        mobileMenuToggle.setAttribute('aria-expanded', 'false');
+
+        setTimeout(() => {
+          if (!mobileMenu.classList.contains('show')) {
+            mobileMenu.classList.add('hidden');
+          }
+        }, 300);
+      }, 150);
+    });
+  });
+
+  // Close mobile menu when clicking outside of it
+  document.addEventListener('click', function(event) {
+    const isClickInsideMenu = mobileMenu.contains(event.target);
+    const isClickOnToggle = mobileMenuToggle.contains(event.target);
+
+    if (!isClickInsideMenu && !isClickOnToggle && mobileMenu.classList.contains('show')) {
+      mobileMenu.classList.remove('show');
+      mobileMenuToggle.setAttribute('aria-expanded', 'false');
+
+      setTimeout(() => {
+        if (!mobileMenu.classList.contains('show')) {
+          mobileMenu.classList.add('hidden');
+        }
+      }, 300);
+    }
+  });
+
+  document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape' && mobileMenu.classList.contains('show')) {
+      mobileMenu.classList.remove('show');
+      mobileMenuToggle.setAttribute('aria-expanded', 'false');
+
+      setTimeout(() => {
+        if (!mobileMenu.classList.contains('show')) {
+          mobileMenu.classList.add('hidden');
+        }
+      }, 300);
+    }
+  });
+
+  console.log('Mobile menu functionality initialized successfully');
 }
 
 // ============================================

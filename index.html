@@ -99,7 +99,7 @@
           </div>
 
           <!-- Desktop Navigation -->
-          <nav class="hidden lg:flex items-center gap-6">
+          <nav class="hidden lg:flex items-center gap-6 desktop-nav">
             <a href="#home"
               class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary-500 transition-colors">Home</a>
             <a href="#learning"
@@ -113,7 +113,7 @@
           </nav>
 
           <!-- Actions -->
-          <div class="flex items-center gap-3">
+          <div class="flex items-center gap-3 relative">
             <a href="https://github.com/Mauritania-Programmers-Community" target="_blank"
               class="text-gray-700 dark:text-gray-300 hover:text-primary-500 transition-colors text-xl"><i
                 class="fab fa-github"></i></a>
@@ -123,6 +123,28 @@
               class="ml-3 text-gray-700 dark:text-gray-300 hover:text-primary-500 transition-colors text-xl">
               <i id="theme-icon" class="fas fa-moon"></i>
             </button>
+
+            <!-- Mobile menu hamburger button -->
+            <button id="mobile-menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false"
+              class="lg:hidden ml-3 text-gray-700 dark:text-gray-300 hover:text-primary-500 transition-colors text-xl">
+              <span class="hamburger-icon">☰</span>
+            </button>
+
+            <!-- Mobile Navigation Menu Dropdown -->
+            <div id="mobile-menu" class="lg:hidden hidden mobile-menu">
+              <nav class="flex flex-col">
+                <a href="#home"
+                  class="mobile-nav-link">Home</a>
+                <a href="#learning"
+                  class="mobile-nav-link">Learning</a>
+                <a href="#community"
+                  class="mobile-nav-link">Community</a>
+                <a href="#projects"
+                  class="mobile-nav-link">Projects</a>
+                <a href="#events"
+                  class="mobile-nav-link">Events</a>
+              </nav>
+            </div>
           </div>
         </div>
       </div>

@@ -220,3 +220,127 @@ img {
   height: 40px;
   animation: spin 0.8s linear infinite;
 }
+
+/* Mobile menu styles */
+.mobile-menu {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  right: 0.25rem;
+  min-width: 120px;
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  transform: translateY(-10px) scale(0.95);
+  transition: all 0.3s ease-in-out;
+  max-height: 0;
+  overflow: hidden;
+  z-index: 1000;
+}
+
+.mobile-menu {
+  background: var(--bg-color, white);
+  border-color: var(--border-color, rgba(0, 0, 0, 0.1));
+}
+
+html[data-theme="dark"] .mobile-menu {
+  background: #1a2332;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.mobile-menu.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  max-height: 300px;
+}
+
+.hamburger-icon {
+  display: inline-block;
+  font-size: 1.5rem;
+  transition: all 0.3s ease-in-out;
+  color: #374151 !important;
+}
+
+html[data-theme="dark"] .hamburger-icon {
+  color: #374151 !important;
+}
+
+#mobile-menu-toggle:hover .hamburger-icon {
+  opacity: 0.7;
+}
+
+.mobile-menu nav {
+  padding: 0.25rem 0;
+}
+
+.mobile-menu nav a {
+  display: block;
+  padding: 0.4rem 0.25rem;
+  text-decoration: none;
+  color: #374151;
+  font-size: 0.8rem;
+  font-weight: 500;
+  transition: all 0.2s ease-in-out;
+  margin: 0;
+  text-align: center;
+  position: relative;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.mobile-menu nav a:last-child {
+  border-bottom: none;
+}
+
+.mobile-menu nav a:hover {
+  color: #00a859;
+}
+
+.mobile-menu nav a:active {
+  color: #00a859;
+  font-weight: 600;
+}
+
+html[data-theme="dark"] .mobile-menu nav a {
+  color: #d1d5db;
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+html[data-theme="dark"] .mobile-menu nav a:hover {
+  color: #00a859;
+}
+
+html[data-theme="dark"] .mobile-menu nav a:active {
+  color: #00a859;
+  font-weight: 600;
+}
+
+.mobile-menu nav a.clicked {
+  color: #00a859;
+  font-weight: 600;
+  animation: clickPulse 0.3s ease-out;
+}
+
+@keyframes clickPulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@media (min-width: 1024px) {
+  .mobile-menu {
+    display: none !important;
+  }
+}
+
+@media (max-width: 1023px) {
+  .desktop-nav {
+    display: none !important;
+  }
+}
