@@ -148,7 +148,7 @@ function initScrollToTop() {
   }
 
   function toggleScrollButton() {
-    if (window.pageYOffset > 300) {
+    if (window.scrollY > 300) {
       scrollButton.classList.add('visible');
     } else {
       scrollButton.classList.remove('visible');
@@ -166,8 +166,6 @@ function initScrollToTop() {
   scrollButton.addEventListener('click', scrollToTop);
 
   toggleScrollButton();
-
-  console.log('Scroll to top functionality initialized');
 }
 
 // ============================================
