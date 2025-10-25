@@ -138,6 +138,36 @@ function initMobileMenu() {
   // Can be implemented with a hamburger menu button
 }
 
+/* Initialize scroll to top button functionality */
+function initScrollToTop() {
+  const scrollButton = document.getElementById('scroll-to-top');
+
+  if (!scrollButton) {
+    console.warn('Scroll to top button not found');
+    return;
+  }
+
+  function toggleScrollButton() {
+    if (window.scrollY > 300) {
+      scrollButton.classList.add('visible');
+    } else {
+      scrollButton.classList.remove('visible');
+    }
+  }
+
+  function scrollToTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }
+
+  window.addEventListener('scroll', toggleScrollButton);
+  scrollButton.addEventListener('click', scrollToTop);
+
+  toggleScrollButton();
+}
+
 // ============================================
 // INITIALIZATION
 // ============================================
@@ -154,6 +184,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Initialize mobile menu (placeholder)
   initMobileMenu();
+
+  // Initialize scroll to top button
+  initScrollToTop();
 
   // Initialize footer year
   initFooterYear();
