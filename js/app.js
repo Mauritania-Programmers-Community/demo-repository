@@ -142,13 +142,24 @@ function initMobileMenu() {
     return;
   }
 
+  // Helper function to close the menu
+  function closeMenu() {
+    mobileMenu.classList.remove('show');
+    mobileMenuToggle.setAttribute('aria-expanded', 'false');
+
+    setTimeout(() => {
+      if (!mobileMenu.classList.contains('show')) {
+        mobileMenu.classList.add('hidden');
+      }
+    }, 300);
+  }
+
   mobileMenuToggle.addEventListener('click', function() {
     const isMenuOpen = mobileMenu.classList.contains('show');
 
     if (isMenuOpen) {
       // Close menu
-      mobileMenu.classList.remove('show');
-      mobileMenuToggle.setAttribute('aria-expanded', 'false');
+      closeMenu();
     } else {
       // Open menu
       mobileMenu.classList.remove('hidden');
@@ -167,14 +178,7 @@ function initMobileMenu() {
       }, 300);
 
       setTimeout(() => {
-        mobileMenu.classList.remove('show');
-        mobileMenuToggle.setAttribute('aria-expanded', 'false');
-
-        setTimeout(() => {
-          if (!mobileMenu.classList.contains('show')) {
-            mobileMenu.classList.add('hidden');
-          }
-        }, 300);
+        closeMenu();
       }, 150);
     });
   });
@@ -185,31 +189,15 @@ function initMobileMenu() {
     const isClickOnToggle = mobileMenuToggle.contains(event.target);
 
     if (!isClickInsideMenu && !isClickOnToggle && mobileMenu.classList.contains('show')) {
-      mobileMenu.classList.remove('show');
-      mobileMenuToggle.setAttribute('aria-expanded', 'false');
-
-      setTimeout(() => {
-        if (!mobileMenu.classList.contains('show')) {
-          mobileMenu.classList.add('hidden');
-        }
-      }, 300);
+      closeMenu();
     }
   });
 
   document.addEventListener('keydown', function(event) {
     if (event.key === 'Escape' && mobileMenu.classList.contains('show')) {
-      mobileMenu.classList.remove('show');
-      mobileMenuToggle.setAttribute('aria-expanded', 'false');
-
-      setTimeout(() => {
-        if (!mobileMenu.classList.contains('show')) {
-          mobileMenu.classList.add('hidden');
-        }
-      }, 300);
+      closeMenu();
     }
   });
-
-  console.log('Mobile menu functionality initialized successfully');
 }
 
 // ============================================
