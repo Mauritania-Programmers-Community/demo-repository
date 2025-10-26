@@ -75,17 +75,20 @@ npm run format       # Auto-format all code with Prettier
 ```
 
 **What each tool checks:**
+
 - **Prettier** (formatting): Indentation, spacing, quotes, line length
 - **ESLint** (quality): Syntax errors, unused variables, undefined variables
 
 **VS Code Users** (Optional):
 
 Recommended extensions for better developer experience:
+
 - **Prettier** - Auto-format on save
 - **Tailwind CSS IntelliSense** - CSS class autocomplete
 - **Live Server** - Auto-reload browser on save
 
 Install via VS Code Extensions marketplace, then configure auto-format:
+
 ```json
 // .vscode/settings.json (create this file locally)
 {
@@ -95,6 +98,7 @@ Install via VS Code Extensions marketplace, then configure auto-format:
 ```
 
 **Workflow Improvement**:
+
 ```
 Before: Edit → Save → Switch to browser → Refresh → See result
 After:  Edit → Save → Auto-formatted + Auto-reloaded! ✨
