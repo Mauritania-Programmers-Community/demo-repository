@@ -22,6 +22,8 @@ npm-debug.log*
 # Dependencies (if added later)
 node_modules/
 vendor/
+.npm/
+.npm/*
 
 
 # playwrite
