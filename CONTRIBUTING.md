@@ -376,6 +376,34 @@ demo-repository/
 
 ---
 
+## 🔄 Keep Your Fork Up To Date (Upstream)
+
+Keep your fork synced with the original MPC repository to avoid conflicts and work with the latest changes.
+
+One-time setup (add upstream):
+
+```bash
+git remote add upstream https://github.com/Mauritania-Programmers-Community/demo-repository.git
+git remote -v   # verify remotes
+```
+
+Update your fork's `main` regularly:
+
+```bash
+git checkout main
+git pull origin main
+git fetch upstream
+git merge upstream/main
+git push origin main
+```
+
+Notes:
+
+- If you already added `upstream`, the add command will fail — that's OK. Use `git remote -v` to confirm.
+- Prefer syncing `main` first, then create new feature branches from the updated `main`.
+
+---
+
 **That's it!** Don't overthink it - just make your change, test it, and submit. We're here to help you learn! 🇲🇷💻
 
 For detailed guidelines, see the main [MPC Contributing Guide](https://github.com/Mauritania-Programmers-Community/.github/blob/main/CONTRIBUTING.md).
