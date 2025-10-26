@@ -5,9 +5,9 @@
   "scripts": {
     "start": "npx live-server --port=3000 --open=index.html",
     "lint": "npm run lint:format && npm run lint:js",
-    "lint:format": "npx prettier --check '**/*.{html,css,js,md,json}'",
-    "lint:js": "npx eslint '**/*.js' --ignore-pattern 'node_modules/**'",
-    "format": "npx prettier --write '**/*.{html,css,js,md,json}'"
+    "lint:format": "npx prettier --check **/*.{html,css,js,md,json}",
+    "lint:js": "npx eslint **/*.js --ignore-pattern node_modules/**",
+    "format": "npx prettier --write **/*.{html,css,js,md,json}"
   },
   "repository": {
     "type": "git",
