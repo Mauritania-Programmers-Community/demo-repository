@@ -15,6 +15,8 @@
 /**
  * Add smooth scroll behavior to navigation links
  */
+
+var x = 10;
 function initSmoothScroll() {
   const navLinks = document.querySelectorAll('a[href^="#"]');
 
