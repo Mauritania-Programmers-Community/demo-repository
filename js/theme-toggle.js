@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
     try {
       localStorage.setItem("theme", theme);
     } catch {
-      // Ignore persistent storage errors (e.g., disabled cookies)
+      console.warn("Unable to save theme preference:", e);
     }
   });
 });
