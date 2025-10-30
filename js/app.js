@@ -127,15 +127,137 @@ function initStatsCounter() {
 }
 
 // ============================================
-// MOBILE MENU TOGGLE (Future Enhancement)
+// MOBILE MENU TOGGLE
 // ============================================
 
 /**
  * Toggle mobile navigation menu
  */
 function initMobileMenu() {
-  // This is a placeholder for future mobile menu functionality
-  // Can be implemented with a hamburger menu button
+  const mobileMenuToggle = document.getElementById("mobile-menu-toggle");
+  const mobileMenuClose = document.getElementById("mobile-menu-close");
+  const mobileMenu = document.getElementById("mobile-menu");
+  const mobileMenuPanel = document.getElementById("mobile-menu-panel");
+  const mobileMenuBackdrop = document.getElementById("mobile-menu-backdrop");
+  const mobileMenuLinks = document.querySelectorAll(".mobile-menu-link");
+  const mobileMenuIcon = document.getElementById("mobile-menu-icon");
+
+  if (!mobileMenuToggle || !mobileMenu) return;
+
+  /**
+   * Open the mobile menu
+   */
+  function openMenu() {
+    mobileMenu.classList.remove("hidden");
+    mobileMenu.setAttribute("aria-hidden", "false");
+    mobileMenuToggle.setAttribute("aria-expanded", "true");
+
+    // Trigger animation after display change
+    setTimeout(() => {
+      mobileMenuPanel.classList.remove("translate-x-full");
+    }, 10);
+
+    // Change icon to X
+    mobileMenuIcon.classList.remove("fa-bars");
+    mobileMenuIcon.classList.add("fa-times");
+
+    // Prevent body scroll
+    document.body.style.overflow = "hidden";
+  }
+
+  /**
+   * Close the mobile menu
+   */
+  function closeMenu() {
+    mobileMenuPanel.classList.add("translate-x-full");
+    mobileMenuToggle.setAttribute("aria-expanded", "false");
+
+    // Hide after animation completes
+    setTimeout(() => {
+      mobileMenu.classList.add("hidden");
+      mobileMenu.setAttribute("aria-hidden", "true");
+    }, 300);
+
+    // Change icon back to bars
+    mobileMenuIcon.classList.remove("fa-times");
+    mobileMenuIcon.classList.add("fa-bars");
+
+    // Restore body scroll
+    document.body.style.overflow = "";
+  }
+
+  // Toggle menu on button click
+  mobileMenuToggle.addEventListener("click", () => {
+    const isHidden = mobileMenu.classList.contains("hidden");
+    if (isHidden) {
+      openMenu();
+    } else {
+      closeMenu();
+    }
+  });
+
+  // Close menu on close button click
+  if (mobileMenuClose) {
+    mobileMenuClose.addEventListener("click", closeMenu);
+  }
+
+  // Close menu on backdrop click
+  if (mobileMenuBackdrop) {
+    mobileMenuBackdrop.addEventListener("click", closeMenu);
+  }
+
+  // Close menu when clicking a navigation link
+  mobileMenuLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      closeMenu();
+    });
+  });
+
+  // Close menu on escape key
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && !mobileMenu.classList.contains("hidden")) {
+      closeMenu();
+    }
+  });
+}
+
+// ============================================
+// BACK TO TOP BUTTON
+// ============================================
+
+/**
+ * Show/hide back to top button based on scroll position
+ */
+function initBackToTop() {
+  const backToTopButton = document.getElementById("back-to-top");
+  if (!backToTopButton) return;
+
+  /**
+   * Show or hide button based on scroll position
+   */
+  function toggleButtonVisibility() {
+    if (window.scrollY > 300) {
+      backToTopButton.classList.remove("opacity-0", "invisible");
+      backToTopButton.classList.add("opacity-100", "visible");
+    } else {
+      backToTopButton.classList.remove("opacity-100", "visible");
+      backToTopButton.classList.add("opacity-0", "invisible");
+    }
+  }
+
+  // Check on scroll
+  window.addEventListener("scroll", toggleButtonVisibility);
+
+  // Scroll to top on click
+  backToTopButton.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  });
+
+  // Initial check
+  toggleButtonVisibility();
 }
 
 // ============================================
@@ -152,8 +274,11 @@ document.addEventListener("DOMContentLoaded", function () {
   // Initialize stats counter
   initStatsCounter();
 
-  // Initialize mobile menu (placeholder)
+  // Initialize mobile menu
   initMobileMenu();
+
+  // Initialize back to top button
+  initBackToTop();
 
   // Initialize footer year
   initFooterYear();

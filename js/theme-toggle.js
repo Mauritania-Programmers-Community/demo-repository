@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
     applyTheme(theme);
     try {
       localStorage.setItem("theme", theme);
-    } catch {
+    } catch (e) {
       console.warn("Unable to save theme preference:", e);
     }
   });
