@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8" />
@@ -137,7 +137,10 @@
           </div>
 
           <!-- Desktop Navigation -->
-          <nav class="hidden lg:flex items-center gap-6">
+          <nav
+            class="hidden lg:flex items-center gap-6"
+            aria-label="Main navigation"
+          >
             <a
               href="#home"
               class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary-500 transition-colors"
@@ -166,10 +169,11 @@
           </nav>
 
           <!-- Actions -->
-          <div class="flex items-center gap-3">
+          <div class="flex items-center gap-3 relative">
             <a
               href="https://github.com/Mauritania-Programmers-Community"
               target="_blank"
+              aria-label="Visit our GitHub organization"
               class="text-gray-700 dark:text-gray-300 hover:text-primary-500 transition-colors text-xl"
               ><i class="fab fa-github"></i
             ></a>
@@ -178,10 +182,57 @@
             <button
               id="theme-toggle"
               aria-label="Toggle dark mode"
-              class="ml-3 text-gray-700 dark:text-gray-300 hover:text-primary-500 transition-colors text-xl"
+              class="text-gray-700 dark:text-gray-300 hover:text-primary-500 transition-colors text-xl"
             >
               <i id="theme-icon" class="fas fa-moon"></i>
             </button>
+
+            <!-- Mobile menu toggle -->
+            <button
+              id="mobile-menu-toggle"
+              type="button"
+              aria-label="Toggle mobile menu"
+              aria-expanded="false"
+              aria-controls="mobile-menu"
+              class="lg:hidden text-gray-700 dark:text-gray-300 hover:text-primary-500 transition-colors text-xl"
+            >
+              <i id="mobile-menu-icon" class="fas fa-bars"></i>
+            </button>
+
+            <!-- Mobile Navigation Menu Dropdown -->
+            <div
+              id="mobile-menu"
+              class="lg:hidden hidden absolute top-[calc(100%+0.25rem)] -left-8 -right-4 bg-white dark:bg-mpc-dark-secondary border border-gray-200 dark:border-gray-700 rounded-2xl shadow-lg opacity-0 -translate-y-2 scale-95 transition-all duration-300 ease-in-out overflow-hidden z-50 max-h-0"
+              aria-hidden="true"
+            >
+              <nav class="flex flex-col py-1">
+                <a
+                  href="#home"
+                  class="mobile-menu-link flex items-center px-6 py-3 text-gray-700 dark:text-gray-300 text-sm font-medium hover:text-primary-500 hover:bg-primary-50 dark:hover:bg-primary-900/10 transition-all duration-200 border-b border-gray-200 dark:border-gray-700/50 min-h-[44px]"
+                  >Home</a
+                >
+                <a
+                  href="#learning"
+                  class="mobile-menu-link flex items-center px-6 py-3 text-gray-700 dark:text-gray-300 text-sm font-medium hover:text-primary-500 hover:bg-primary-50 dark:hover:bg-primary-900/10 transition-all duration-200 border-b border-gray-200 dark:border-gray-700/50 min-h-[44px]"
+                  >Learning</a
+                >
+                <a
+                  href="#community"
+                  class="mobile-menu-link flex items-center px-6 py-3 text-gray-700 dark:text-gray-300 text-sm font-medium hover:text-primary-500 hover:bg-primary-50 dark:hover:bg-primary-900/10 transition-all duration-200 border-b border-gray-200 dark:border-gray-700/50 min-h-[44px]"
+                  >Community</a
+                >
+                <a
+                  href="#projects"
+                  class="mobile-menu-link flex items-center px-6 py-3 text-gray-700 dark:text-gray-300 text-sm font-medium hover:text-primary-500 hover:bg-primary-50 dark:hover:bg-primary-900/10 transition-all duration-200 border-b border-gray-200 dark:border-gray-700/50 min-h-[44px]"
+                  >Projects</a
+                >
+                <a
+                  href="#events"
+                  class="mobile-menu-link flex items-center px-6 py-3 text-gray-700 dark:text-gray-300 text-sm font-medium hover:text-primary-500 hover:bg-primary-50 dark:hover:bg-primary-900/10 transition-all duration-200 min-h-[44px]"
+                  >Events</a
+                >
+              </nav>
+            </div>
           </div>
         </div>
       </div>
@@ -190,6 +241,7 @@
     <!-- Hero Section -->
     <section
       id="home"
+      aria-label="Hero section"
       class="relative overflow-hidden py-20 text-center text-white bg-gradient-to-br from-mpc-dark via-mpc-dark-secondary to-mpc-green"
     >
       <div class="absolute inset-0 geometric-pattern opacity-10"></div>
@@ -271,10 +323,12 @@
     <!-- Learning Section -->
     <section
       id="learning"
+      aria-labelledby="learning-heading"
       class="py-20 bg-gray-50 dark:bg-mpc-dark transition-colors duration-300"
     >
       <div class="container mx-auto px-4">
         <h3
+          id="learning-heading"
           class="text-4xl font-bold text-center mb-12 text-gray-900 dark:text-white"
         >
           Learning Paths
@@ -412,10 +466,14 @@
     <!-- Community -->
     <section
       id="community"
+      aria-labelledby="community-heading"
       class="py-20 bg-primary-50 dark:bg-mpc-dark-secondary"
     >
       <div class="container mx-auto px-4 text-center">
-        <h3 class="text-4xl font-bold mb-6 text-gray-900 dark:text-white">
+        <h3
+          id="community-heading"
+          class="text-4xl font-bold mb-6 text-gray-900 dark:text-white"
+        >
           Our Vibrant Community
         </h3>
         <p
@@ -438,10 +496,12 @@
     <!-- Projects Section -->
     <section
       id="projects"
+      aria-labelledby="projects-heading"
       class="py-20 bg-white dark:bg-mpc-dark transition-colors duration-300"
     >
       <div class="container mx-auto px-4">
         <h3
+          id="projects-heading"
           class="text-4xl font-bold text-center mb-12 text-gray-900 dark:text-white"
         >
           Featured Projects
@@ -514,10 +574,12 @@
     <!-- Events Section -->
     <section
       id="events"
+      aria-labelledby="events-heading"
       class="py-20 bg-gray-50 dark:bg-mpc-dark transition-colors duration-300"
     >
       <div class="container mx-auto px-4">
         <h3
+          id="events-heading"
           class="text-4xl font-bold text-center mb-12 text-gray-900 dark:text-white"
         >
           Upcoming Events
@@ -705,16 +767,19 @@
           <div class="flex gap-4">
             <a
               href="https://github.com/Mauritania-Programmers-Community"
+              aria-label="Visit our GitHub organization"
               class="text-gray-400 hover:text-primary-500 transition-colors"
               ><i class="fab fa-github text-2xl"></i
             ></a>
             <a
               href="https://chat.whatsapp.com/L13JBkYOBXqK9p8FYZE00x"
+              aria-label="Join our WhatsApp community"
               class="text-gray-400 hover:text-primary-500 transition-colors"
               ><i class="fab fa-whatsapp text-2xl"></i
             ></a>
             <a
               href="https://linkedin.com/company/مبرمجي-موريتانيا"
+              aria-label="Follow us on LinkedIn"
               class="text-gray-400 hover:text-primary-500 transition-colors"
               ><i class="fab fa-linkedin text-2xl"></i
             ></a>
@@ -722,6 +787,15 @@
         </div>
       </div>
     </footer>
+
+    <!-- Back to Top Button -->
+    <button
+      id="back-to-top"
+      aria-label="Scroll back to top"
+      class="fixed bottom-6 right-6 bg-primary-500 text-white w-12 h-12 rounded-full shadow-lg hover:bg-primary-600 hover:shadow-xl transition-all duration-300 opacity-0 invisible z-50 flex items-center justify-center"
+    >
+      <i class="fas fa-arrow-up"></i>
+    </button>
 
     <!-- JS -->
     <script src="./js/theme-toggle.js"></script>

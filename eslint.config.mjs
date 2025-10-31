@@ -24,7 +24,8 @@ export default [
         navigator: 'readonly',
         IntersectionObserver: 'readonly',
         setInterval: 'readonly',
-        clearInterval: 'readonly'
+        clearInterval: 'readonly',
+        setTimeout: 'readonly'
       }
     },
     rules: {

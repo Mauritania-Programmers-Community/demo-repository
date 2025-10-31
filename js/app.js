@@ -127,15 +127,165 @@ function initStatsCounter() {
 }
 
 // ============================================
-// MOBILE MENU TOGGLE (Future Enhancement)
+// MOBILE MENU TOGGLE
 // ============================================
 
 /**
- * Toggle mobile navigation menu
+ * Toggle mobile navigation menu (dropdown design with icon toggle)
  */
 function initMobileMenu() {
-  // This is a placeholder for future mobile menu functionality
-  // Can be implemented with a hamburger menu button
+  const mobileMenuToggle = document.getElementById("mobile-menu-toggle");
+  const mobileMenu = document.getElementById("mobile-menu");
+  const mobileMenuIcon = document.getElementById("mobile-menu-icon");
+
+  // Mobile menu dropdown height (calculated from nav links)
+  const MOBILE_MENU_MAX_HEIGHT = "280px";
+
+  if (!mobileMenuToggle || !mobileMenu) return;
+
+  /**
+   * Close the mobile menu
+   */
+  function closeMenu() {
+    // Reset dropdown animation
+    mobileMenu.classList.add("opacity-0", "-translate-y-2", "scale-95");
+    mobileMenu.classList.remove("opacity-100", "translate-y-0", "scale-100");
+    mobileMenu.style.maxHeight = "0";
+    mobileMenuToggle.setAttribute("aria-expanded", "false");
+    mobileMenu.setAttribute("aria-hidden", "true");
+
+    // Change icon back to bars
+    if (mobileMenuIcon) {
+      mobileMenuIcon.classList.remove("fa-times");
+      mobileMenuIcon.classList.add("fa-bars");
+    }
+
+    // Hide after animation completes
+    setTimeout(() => {
+      mobileMenu.classList.add("hidden");
+    }, 300);
+  }
+
+  /**
+   * Open the mobile menu
+   */
+  function openMenu() {
+    mobileMenu.classList.remove("hidden");
+    mobileMenu.setAttribute("aria-hidden", "false");
+    mobileMenuToggle.setAttribute("aria-expanded", "true");
+
+    // Change icon to X
+    if (mobileMenuIcon) {
+      mobileMenuIcon.classList.remove("fa-bars");
+      mobileMenuIcon.classList.add("fa-times");
+    }
+
+    // Trigger dropdown animation after display change
+    setTimeout(() => {
+      mobileMenu.classList.remove("opacity-0", "-translate-y-2", "scale-95");
+      mobileMenu.classList.add("opacity-100", "translate-y-0", "scale-100");
+      mobileMenu.style.maxHeight = MOBILE_MENU_MAX_HEIGHT;
+    }, 10);
+  }
+
+  // Toggle menu on button click
+  mobileMenuToggle.addEventListener("click", () => {
+    const isMenuOpen = !mobileMenu.classList.contains("hidden");
+
+    if (isMenuOpen) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
+  });
+
+  // Close menu when clicking a navigation link
+  const mobileMenuLinks = mobileMenu.querySelectorAll("a[href^='#']");
+  mobileMenuLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      // Visual feedback on click
+      link.classList.add("font-semibold");
+      setTimeout(() => {
+        link.classList.remove("font-semibold");
+      }, 300);
+
+      // Close menu after short delay
+      setTimeout(() => {
+        closeMenu();
+      }, 150);
+    });
+  });
+
+  // Close mobile menu when clicking outside
+  document.addEventListener("click", (event) => {
+    const isClickInsideMenu = mobileMenu.contains(event.target);
+    const isClickOnToggle = mobileMenuToggle.contains(event.target);
+
+    if (
+      !isClickInsideMenu &&
+      !isClickOnToggle &&
+      !mobileMenu.classList.contains("hidden")
+    ) {
+      closeMenu();
+    }
+  });
+
+  // Close menu on escape key
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && !mobileMenu.classList.contains("hidden")) {
+      closeMenu();
+    }
+  });
+}
+
+// ============================================
+// BACK TO TOP BUTTON
+// ============================================
+
+/**
+ * Show/hide back to top button based on scroll position
+ */
+function initBackToTop() {
+  const backToTopButton = document.getElementById("back-to-top");
+  if (!backToTopButton) return;
+
+  /**
+   * Show or hide button based on scroll position
+   */
+  function toggleButtonVisibility() {
+    if (window.scrollY > 300) {
+      backToTopButton.classList.remove("opacity-0", "invisible");
+      backToTopButton.classList.add("opacity-100", "visible");
+    } else {
+      backToTopButton.classList.remove("opacity-100", "visible");
+      backToTopButton.classList.add("opacity-0", "invisible");
+    }
+  }
+
+  // Throttle scroll events for better performance
+  let scrollTimeout;
+  function throttledScroll() {
+    if (!scrollTimeout) {
+      scrollTimeout = setTimeout(() => {
+        toggleButtonVisibility();
+        scrollTimeout = null;
+      }, 100);
+    }
+  }
+
+  // Check on scroll with throttling
+  window.addEventListener("scroll", throttledScroll);
+
+  // Scroll to top on click
+  backToTopButton.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  });
+
+  // Initial check
+  toggleButtonVisibility();
 }
 
 // ============================================
@@ -152,8 +302,11 @@ document.addEventListener("DOMContentLoaded", function () {
   // Initialize stats counter
   initStatsCounter();
 
-  // Initialize mobile menu (placeholder)
+  // Initialize mobile menu
   initMobileMenu();
+
+  // Initialize back to top button
+  initBackToTop();
 
   // Initialize footer year
   initFooterYear();
