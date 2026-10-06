@@ -28,4 +28,16 @@ document.addEventListener("DOMContentLoaded", () => {
       console.warn("Unable to save theme preference:", e);
     }
   });
+
+  // Listen for OS theme changes (only if no manual preference)
+  prefersDark.addEventListener("change", (e) => {
+    try {
+      if (!localStorage.getItem("theme")) {
+        theme = e.matches ? "dark" : "light";
+        applyTheme(theme);
+      }
+    } catch (err) {
+      console.warn("Unable to access localStorage:", err);
+    }
+  });
 });
