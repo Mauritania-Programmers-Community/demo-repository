@@ -322,3 +322,8 @@ document.addEventListener("DOMContentLoaded", function () {
     "color: #666; font-size: 12px;"
   );
 });
+window.addEventListener("load", () => {
+  setTimeout(() => {
+    document.getElementById("page-loader").classList.add("hidden");
+  }, 800);
+});
